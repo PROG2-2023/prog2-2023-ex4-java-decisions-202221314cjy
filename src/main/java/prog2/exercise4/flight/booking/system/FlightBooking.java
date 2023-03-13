@@ -2,21 +2,21 @@ package prog2.exercise4.flight.booking.system;
 import java.time.LocalDate;
 
 public class FlightBooking {
-    private String PassengerFullName;
+    private final String PassengerFullName;
     private LocalDate ReturnDate;
     private LocalDate depart;
-    private String ticketNumber;
     private final String TicketNumber="A87787423";
     private String FlightCompany="Flights-of-Fancy";
     private int TotalPassengers;
     private double TotalTicketPrice;
-    private int ChildPassenger;
-    private int AdultPassenger;
+    private final int ChildPassenger;
+    private final int AdultPassenger;
     private String bookingClass;
     private String tripType;
     private String tripSource="";
     private final String tripDestination="";
     private String tripDestination1;
+    private String ch;
     private String cho;
     private String choi;
     private String choic;
@@ -26,16 +26,19 @@ public class FlightBooking {
     double DepartingTicketPrice;
     double ReturnTicketPrice1;
     double ReturnTicketPrice;
+public String getCh()
+{
+    return this.ch;
+}
     public String getCho()
     {
         return this.cho;
     }
     public String getChoi(){
-        return this.choi;
+    return this.choi;
     }
     public String getChoi1(){return this.choi1;}
-
-        public FlightBooking(String PassengerFullName, LocalDate DepartureDate, LocalDate ReturnDate,int ChildPassenger,int AdultPassenger){
+{}    FlightBooking(String PassengerFullName, LocalDate DepartureDate, LocalDate ReturnDate,int ChildPassenger,int AdultPassenger){
         this.PassengerFullName = PassengerFullName;
         this.depart= DepartureDate;
         this.ReturnDate = ReturnDate;
@@ -43,108 +46,65 @@ public class FlightBooking {
         this.AdultPassenger=AdultPassenger;
         setTotalPassengers(ChildPassenger,AdultPassenger);
     }
-    public String getBookingClass() {return bookingClass;}
-    public String getTripType(){return tripType;}
 
-    public TripSource getTripSource(){return TripSource.valueOf(tripSource);}
-    public String getTripDestination(){return tripDestination;}
-    public String getTripDestination1(){return tripDestination1;}
-    public String getPassengerFullName() {return PassengerFullName;}
-
-    public String getFlightCompany() {return FlightCompany;}
-
-    public LocalDate getDepartureDate() {return depart;}
-
-    public LocalDate getReturnDate() {return ReturnDate;}
-    public int getTotalPassengers() {return TotalPassengers;}
-
-    public double getTotalTicketPrice() {return TotalTicketPrice;}
-
-    public int getChildPassengers() {return ChildPassenger;}
-    public int getAdultPassengers() {return AdultPassenger;}
-    public String getTicketNumber() {return TicketNumber;}
-    public void setPassengerFullName(String PassengerFullName) {
-        this.PassengerFullName = PassengerFullName;
-    }
-    public void setChildPassengers(int ChildPassenger) {
-        this.ChildPassenger = ChildPassenger;
-    }
-    public void setAdultPassengers(int AdultPassenger) {
-        this.AdultPassenger = AdultPassenger;
-    }
     public void setTotalPassengers(int ChildPassenger, int AdultPassenger) {
         this.TotalPassengers=ChildPassenger+AdultPassenger;
     }
-    public void setDepartureDate(LocalDate depart){
-        this.depart=depart;
-    }
-    public void setReturnDate(LocalDate returnDate){
-        this.ReturnDate=returnDate;
-    }
-    public void setTripSource(){
-        this.tripSource=tripSource;
-    }
-    public void setTicketNumber(String ticketNumber) {
-        this.ticketNumber = ticketNumber;
-    }
-    public void setFlightCompany(String FlightCompany) {
-        this.FlightCompany = FlightCompany;
-    }
     enum BookingClass{FIRST,BUSINESS,ECONOMY}
-    public void setBookingClass(String o){
-        switch(o){
+    public void setBookingClass(String bookingClass){
+        switch(bookingClass){
             case "1":
-                bookingClass=String.valueOf(BookingClass.FIRST);
+                ch=String.valueOf(BookingClass.FIRST);
                 break;
             case "2":
-                bookingClass=String.valueOf(BookingClass.BUSINESS);
+                ch=String.valueOf(BookingClass.BUSINESS);
                 break;
             case "3":
-                bookingClass=String.valueOf(BookingClass.ECONOMY);
+                ch=String.valueOf(BookingClass.ECONOMY);
                 break;
         }
     }
     enum TripType{ONE_WAY,RETURN}
     public void setTripType(String tripType){
-        switch (tripType){
-            case "1":
-                cho=String.valueOf(TripType.ONE_WAY);
-                break;
-            case "2":
-                cho=String.valueOf(TripType.RETURN);
-                break;
-        }
+    switch (tripType){
+        case "1":
+            cho=String.valueOf(TripType.ONE_WAY);
+            break;
+        case "2":
+            cho=String.valueOf(TripType.RETURN);
+            break;
+    }
 
     }
     enum TripSource{NANJING,BEIJING,SHANGHAI,OULU,HELSINKI,PARIS}
     enum Sourceairport{Nanjing_Lukou_International_Airport,Beijing_Capital_International_Airport, Shanghai_Pudong_International_Airport, Oulu_Airport,Helsinki_Airport,Paris_Charles_de_Gaulle_Airport}
     public void setTripSource(String tripSource){
-        switch (tripSource){
-            case "1":
-                choi=String.valueOf(TripSource.NANJING);
-                choic=String.valueOf(Sourceairport.Nanjing_Lukou_International_Airport);
-                break;
-            case "2":
-                choi=String.valueOf(TripSource.BEIJING);
-                choic=String.valueOf(Sourceairport.Beijing_Capital_International_Airport);
-                break;
-            case "3":
-                choi=String.valueOf(TripSource.SHANGHAI);
-                choic=String.valueOf(Sourceairport.Shanghai_Pudong_International_Airport);
-                break;
-            case "4":
-                choi=String.valueOf(TripSource.OULU);
-                choic=String.valueOf(Sourceairport.Oulu_Airport);
-                break;
-            case "5":
-                choi=String.valueOf(TripSource.HELSINKI);
-                choic=String.valueOf(Sourceairport.Helsinki_Airport);
-                break;
-            case "6":
-                choi=String.valueOf(TripSource.PARIS);
-                choic=String.valueOf(Sourceairport.Paris_Charles_de_Gaulle_Airport);
-                break;
-        }
+    switch (tripSource){
+        case "1":
+            choi=String.valueOf(TripSource.NANJING);
+            choic=String.valueOf(Sourceairport.Nanjing_Lukou_International_Airport);
+            break;
+        case "2":
+            choi=String.valueOf(TripSource.BEIJING);
+            choic=String.valueOf(Sourceairport.Beijing_Capital_International_Airport);
+            break;
+        case "3":
+            choi=String.valueOf(TripSource.SHANGHAI);
+            choic=String.valueOf(Sourceairport.Shanghai_Pudong_International_Airport);
+            break;
+        case "4":
+            choi=String.valueOf(TripSource.OULU);
+            choic=String.valueOf(Sourceairport.Oulu_Airport);
+            break;
+        case "5":
+            choi=String.valueOf(TripSource.HELSINKI);
+            choic=String.valueOf(Sourceairport.Helsinki_Airport);
+            break;
+        case "6":
+            choi=String.valueOf(TripSource.PARIS);
+            choic=String.valueOf(Sourceairport.Paris_Charles_de_Gaulle_Airport);
+            break;
+    }
     }
     enum TripDestination{NANJING,BEIJING,SHANGHAI,OULU,HELSINKI,PARIS}
     enum Destinationairport{Nanjing_Lukou_International_Airport,Beijing_Capital_International_Airport, Shanghai_Pudong_International_Airport, Oulu_Airport,Helsinki_Airport,Paris_Charles_de_Gaulle_Airport}
@@ -205,10 +165,64 @@ public class FlightBooking {
         }
     }
 
+    public String getBookingClass() {
+        return bookingClass;
+    }
+    public String getTripType(){return tripType;}
+
+    public TripSource getTripSource(){return TripSource.valueOf(tripSource);}
+    public String getTripDestination(){return tripDestination;}
+    public String getTripDestination1(){return tripDestination1;}
+    public String getPassengerFullName() {
+        return PassengerFullName;
+    }
+
+    public String getFlightCompany() {
+        return FlightCompany;
+    }
+
+    public LocalDate getDepartureDate() {return depart;
+    }
+
+    public LocalDate getReturnDate() {return ReturnDate;
+    }
 
 
 
 
+
+    public int getTotalPassengers() {
+        return TotalPassengers;
+    }
+
+    public double getTotalTicketPrice() {
+        return TotalTicketPrice;
+    }
+
+    public int getChildPassengers() {
+        return ChildPassenger;
+    }
+
+    public String getTicketNumber() {
+        return TicketNumber;
+    }
+
+    public int getAdultPassengers() {
+        return AdultPassenger;
+    }
+
+    public void setDepartureDate(LocalDate depart){
+        this.depart=depart;
+    }
+    public void setReturnDate(LocalDate returnDate){
+    this.ReturnDate=returnDate;
+    }
+    public void setTripSource(){
+    this.tripSource=tripSource;
+    }
+    public void setFlightCompany(String FlightCompany) {
+        this.FlightCompany = FlightCompany;
+    }
     public void setDepartingTicketPrice(int ChildPassenger,int AdultPassenger) {
         int x = Integer.parseInt(tripSource);
         int y = Integer.parseInt(tripDestination);
@@ -256,7 +270,7 @@ public class FlightBooking {
         }
     }
     public void setTotalTicketPrice(){
-        this.TotalTicketPrice=DepartingTicketPrice+ReturnTicketPrice;
+    this.TotalTicketPrice=DepartingTicketPrice+ReturnTicketPrice;
     }
     public String toString(){
         return  "Thank you for booking your flight with " + FlightCompany + "." +"\n"+
