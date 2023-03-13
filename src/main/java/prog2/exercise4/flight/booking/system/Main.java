@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Hello world!
  *
  */
-public class Main 
+public class Main
 {
     public static void main( String[] args ) {
         System.out.println("please enter your full name");
@@ -45,8 +45,8 @@ public class Main
         System.out.println("4.Oulu");
         System.out.println("5.Helsinki");
         System.out.println("6.Paris");
-        Scanner getChoi = new Scanner(System.in);
-        String choi = getChoi.nextLine();
+        Scanner getTripSource = new Scanner(System.in);
+        String tripSource = getTripSource.nextLine();
         System.out.println("please enter the number of your choice of destination(only number)");
         System.out.println("1.Nanjing");
         System.out.println("2.Beijing");
@@ -57,14 +57,14 @@ public class Main
         Scanner getTripDestination = new Scanner(System.in);
         String tripDestination = getTripDestination.nextLine();
         String tripDestination1 = null;
-        if (choi.equals(tripDestination)) {
+        if (tripSource.equals(tripDestination)) {
             System.out.println("please enter the TripDestination1");
             Scanner getTripDestination1 = new Scanner(System.in);
             tripDestination = getTripDestination1.nextLine();
         }
         Long cha = returnDate.toEpochDay()-depart.toEpochDay();
         if (cha==0){
-          returnDate=returnDate.plusDays(2);
+            returnDate=returnDate.plusDays(2);
         }
         if (cha==1){
             returnDate=returnDate.plusDays(1);
@@ -73,7 +73,7 @@ public class Main
         fb.setTotalPassengers(ChildPassengers, AdultPassengers);
         fb.setBookingClass(bookingClass);
         fb.setTripType(tripType);
-        fb.setChoi(choi);
+        fb.setTripSource(tripSource);
         fb.setTripDestination(tripDestination, tripDestination1);
         fb.setTotalTicketPrice();
         System.out.println(fb);
