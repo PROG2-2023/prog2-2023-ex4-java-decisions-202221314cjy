@@ -38,7 +38,8 @@ public String getCh()
     return this.choi;
     }
     public String getChoi1(){return this.choi1;}
-{}    FlightBooking(String PassengerFullName, LocalDate DepartureDate, LocalDate ReturnDate,int ChildPassenger,int AdultPassenger){
+{}   
+    public FlightBooking(String PassengerFullName, LocalDate DepartureDate, LocalDate ReturnDate,int ChildPassenger,int AdultPassenger){
         this.PassengerFullName = PassengerFullName;
         this.depart= DepartureDate;
         this.ReturnDate = ReturnDate;
