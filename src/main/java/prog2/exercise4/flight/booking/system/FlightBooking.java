@@ -18,7 +18,6 @@ public class FlightBooking {
     private String tripDestination1;
     private String ch;
     private String cho;
-    private String choi;
     private String choic;
     private String choi1;
     private String choic2;
@@ -33,9 +32,6 @@ public String getCh()
     public String getCho()
     {
         return this.cho;
-    }
-    public String getChoi(){
-    return this.choi;
     }
     public String getChoi1(){return this.choi1;}
 {}    FlightBooking(String PassengerFullName, LocalDate DepartureDate, LocalDate ReturnDate,int ChildPassenger,int AdultPassenger){
@@ -81,27 +77,27 @@ public String getCh()
     public void setTripSource(String tripSource){
     switch (tripSource){
         case "1":
-            choi=String.valueOf(TripSource.NANJING);
+            this.tripSource=String.valueOf(TripSource.NANJING);
             choic=String.valueOf(Sourceairport.Nanjing_Lukou_International_Airport);
             break;
         case "2":
-            choi=String.valueOf(TripSource.BEIJING);
+            this.tripSource=String.valueOf(TripSource.BEIJING);
             choic=String.valueOf(Sourceairport.Beijing_Capital_International_Airport);
             break;
         case "3":
-            choi=String.valueOf(TripSource.SHANGHAI);
+            this.tripSource=String.valueOf(TripSource.SHANGHAI);
             choic=String.valueOf(Sourceairport.Shanghai_Pudong_International_Airport);
             break;
         case "4":
-            choi=String.valueOf(TripSource.OULU);
+            this.tripSource=String.valueOf(TripSource.OULU);
             choic=String.valueOf(Sourceairport.Oulu_Airport);
             break;
         case "5":
-            choi=String.valueOf(TripSource.HELSINKI);
+            this.tripSource=String.valueOf(TripSource.HELSINKI);
             choic=String.valueOf(Sourceairport.Helsinki_Airport);
             break;
         case "6":
-            choi=String.valueOf(TripSource.PARIS);
+            this.tripSource=String.valueOf(TripSource.PARIS);
             choic=String.valueOf(Sourceairport.Paris_Charles_de_Gaulle_Airport);
             break;
     }
@@ -135,7 +131,7 @@ public String getCh()
                 choic2=String.valueOf(Destinationairport.Paris_Charles_de_Gaulle_Airport);
                 break;
         }
-        if(choi.equals(choi1)){
+        if(tripSource.equals(choi1)){
             switch (tripDestination1){
                 case "1":
                     choi1=String.valueOf(TripDestination.NANJING);
@@ -276,11 +272,10 @@ public String getCh()
         return  "Thank you for booking your flight with " + FlightCompany + "." +"\n"+
                 "Following are the details of your booking and the trip:" + "\n" +
                 "Ticket Number: " + TicketNumber + "\n" +"Passenger Fullname: "+PassengerFullName+"\n"+
-                "From "+choi+" to "+choi1+"\n"+
+                "From "+tripSource+" to "+choi1+"\n"+
                 "Date of departure: " + depart + "\n" +
                 "Date of return: " + ReturnDate + "\n" +
                 "Total passengers: " + TotalPassengers + "\n" +
                 "Total ticket price in Euros: " + TotalTicketPrice;
     }
 }
-
